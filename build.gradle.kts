@@ -1,11 +1,11 @@
 plugins {
-	id("fabric-loom") version "1.5-SNAPSHOT"
-	kotlin("jvm") version "1.9.22"
+	id("fabric-loom") version "1.7-SNAPSHOT"
+	kotlin("jvm") version "2.0.0"
 	id("maven-publish")
 }
 
-java.sourceCompatibility = JavaVersion.VERSION_17
-java.targetCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_21
+java.targetCompatibility = JavaVersion.VERSION_21
 
 base.archivesName.set(project.properties["archives_base_name"] as String)
 version = project.properties["mod_version"] as String
@@ -39,10 +39,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_version"]}")
 	modImplementation("net.fabricmc:fabric-language-kotlin:${project.properties["fabric_kotlin_version"]}")
-	// Uncomment the following line to enable the deprecated Fabric API modules. 
-	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
-	// modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${project.properties["fabric_version"]}")
 }
 
 tasks {
