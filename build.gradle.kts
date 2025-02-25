@@ -1,6 +1,6 @@
 plugins {
-	id("fabric-loom") version "1.9-SNAPSHOT"
-	kotlin("jvm") version "2.1.0"
+	id("fabric-loom") version "1.10-SNAPSHOT"
+	kotlin("jvm") version "2.1.10"
 	id("maven-publish")
 }
 
@@ -47,7 +47,7 @@ tasks {
 		inputs.property("version", project.version)
 
 		filesMatching("fabric.mod.json") {
-			expand("version" to project.version)
+			expand("version" to inputs.properties["version"])
 		}
 	}
 
@@ -64,7 +64,7 @@ tasks {
 
 	jar {
 		from("LICENSE") {
-			rename { "${it}_${base.archivesName.get()}" }
+			rename { "${it}_${inputs.properties["archivesName"]}" }
 		}
 	}
 }
