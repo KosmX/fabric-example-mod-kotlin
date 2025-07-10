@@ -6,4 +6,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    val loom_version: String by settings
+    plugins {
+        id("fabric-loom") version loom_version
+    }
 }
