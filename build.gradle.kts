@@ -1,6 +1,6 @@
 plugins {
 	id("fabric-loom")
-	kotlin("jvm") version "2.2.0"
+	kotlin("jvm") version "2.2.21"
 	id("maven-publish")
 }
 
@@ -33,7 +33,7 @@ loom {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft("com.mojang:minecraft:${project.properties["minecraft_version"]}")
-	mappings("net.fabricmc:yarn:${project.properties["yarn_mappings"]}:v2")
+	mappings(loom.officialMojangMappings())
 	modImplementation("net.fabricmc:fabric-loader:${project.properties["loader_version"]}")
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
@@ -47,7 +47,7 @@ tasks {
 		inputs.property("version", project.version)
 
 		filesMatching("fabric.mod.json") {
-			expand("version" to inputs.properties["version"])
+			expand(mapOf("version" to inputs.properties["version"]))
 		}
 	}
 
