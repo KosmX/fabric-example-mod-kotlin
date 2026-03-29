@@ -1,3 +1,6 @@
+# Archived
+Please use FabricMC's official template generator: https://fabricmc.net/develop/template/
+
 # Fabric Example Mod
 
 ## Setup
